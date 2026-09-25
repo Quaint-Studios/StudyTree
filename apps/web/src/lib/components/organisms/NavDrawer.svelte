@@ -25,11 +25,18 @@
 	// Shift-free scroll locking on the body
 	$effect(() => {
 		if (isOpen) {
+			const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 			const originalOverflow = document.body.style.overflow;
+			const originalPaddingRight = document.body.style.paddingRight;
+
+			if (scrollbarWidth > 0) {
+				document.body.style.paddingRight = `${scrollbarWidth}px`;
+			}
 			document.body.style.overflow = 'hidden';
 
 			return () => {
 				document.body.style.overflow = originalOverflow;
+				document.body.style.paddingRight = originalPaddingRight;
 			};
 		}
 	});
@@ -180,7 +187,10 @@
 	/* Pure dimming backdrop with 150ms opacity transition */
 	.drawer-backdrop {
 		position: fixed;
-		inset: 0;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
 		background: rgba(0, 0, 0, 0.38);
 		z-index: 90;
 		opacity: 0;

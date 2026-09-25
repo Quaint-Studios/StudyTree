@@ -6,20 +6,31 @@ import type { Handle } from '@sveltejs/kit';
 import { getTextDirection } from '$lib/paraglide/runtime';
 import { paraglideMiddleware } from '$lib/paraglide/server';
 
-const handleParaglide: Handle = ({ event, resolve }) => paraglideMiddleware(event.request, ({ request, locale }) => {
-	event.request = request;
+const handleParaglide: Handle = ({ event, resolve }) =>
+	paraglideMiddleware(event.request, ({ request, locale }) => {
+		event.request = request;
 
-	return resolve(event, {
-		transformPageChunk: ({ html }) => html.replace('%paraglide.lang%', locale).replace('%paraglide.dir%', getTextDirection(locale))
+		return resolve(event, {
+			transformPageChunk: ({ html }) =>
+				html
+					.replace('%paraglide.lang%', locale)
+					.replace('%paraglide.dir%', getTextDirection(locale))
+		});
 	});
-});
 
 const handleBetterAuth: Handle = async ({ event, resolve }) => {
-	const session = await auth.api.getSession({ headers: event.request.headers });
+	try {
+		const session = await auth.api.getSession({ headers: event.request.headers });
 
-	if (session) {
-		event.locals.session = session.session;
-		event.locals.user = session.user;
+		if (session) {
+			event.locals.session = session.session;
+			event.locals.user = session.user;
+		}
+	} catch (error) {
+		console.warn(
+			'[Better Auth] Database appears offline. Serving page without an active session.',
+			error
+		);
 	}
 
 	return svelteKitHandler({ event, resolve, auth, building });

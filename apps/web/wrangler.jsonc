@@ -11,5 +11,8 @@
 		"directory": ".svelte-kit/cloudflare"
 	},
 	"workers_dev": true,
-	"preview_urls": true
+	"preview_urls": true,
+	"observability": {
+		"enabled": true
+	}
 }

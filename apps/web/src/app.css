@@ -19,6 +19,7 @@
 	--color-brand-active: #5fa83c;
 	--color-brand-subtle: #f0faed;
 	--color-brand-fg: #0d2806;
+	--color-brand-subtle-fg: #1d500e;
 
 	/* Border Radius (Very round, but not fully round) */
 	--radius-xs: 6px;
@@ -77,6 +78,7 @@
 	--color-brand-active: #6ec047;
 	--color-brand-subtle: rgba(126, 207, 88, 0.12);
 	--color-brand-fg: #0d2806;
+	--color-brand-subtle-fg: #8ede68;
 
 	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
 	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -103,6 +105,7 @@
 		--color-brand-active: #6ec047;
 		--color-brand-subtle: rgba(126, 207, 88, 0.12);
 		--color-brand-fg: #0d2806;
+		--color-brand-subtle-fg: #8ede68;
 
 		--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
 		--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);

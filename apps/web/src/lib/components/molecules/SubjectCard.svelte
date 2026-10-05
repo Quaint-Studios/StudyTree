@@ -118,7 +118,7 @@
 
 	.subject-card__status-tag--upcoming {
 		background-color: var(--color-surface-hover);
-		color: var(--color-text-muted);
+		color: var(--color-text-secondary);
 		border: 1px solid var(--color-border);
 	}
 
@@ -194,11 +194,16 @@
 		border-radius: var(--radius-sm, 10px);
 		background-color: var(--color-surface-hover);
 		color: var(--color-text-secondary);
-		transition: background-color var(--transition-fast), color var(--transition-fast);
+		border: 1px solid transparent;
+		transition:
+			background-color var(--transition-fast),
+			color var(--transition-fast),
+			border-color var(--transition-fast);
 	}
 
 	.subject-card:hover .subject-card__pill {
 		background-color: var(--color-brand-subtle);
-		color: var(--color-brand-fg);
+		color: var(--color-brand-subtle-fg, var(--color-brand));
+		border-color: rgba(126, 207, 88, 0.25);
 	}
 </style>

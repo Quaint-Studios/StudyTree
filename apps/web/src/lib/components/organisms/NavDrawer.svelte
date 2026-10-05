@@ -280,11 +280,13 @@
 		gap: var(--space-sm);
 		padding: 0.65rem var(--space-sm);
 		border-radius: var(--radius-md, 16px);
+		border: 1px solid transparent;
 		color: var(--color-text);
 		font-weight: 500;
 		text-decoration: none;
 		transition:
 			background-color var(--transition-fast),
+			border-color var(--transition-fast),
 			color var(--transition-fast);
 	}
 
@@ -295,12 +297,13 @@
 
 	.drawer-link.active {
 		background-color: var(--color-brand-subtle);
-		color: var(--color-brand-fg);
+		color: var(--color-brand-subtle-fg, var(--color-brand));
+		border: 1px solid rgba(126, 207, 88, 0.25);
 		font-weight: 600;
 	}
 
 	.drawer-link--disabled {
-		opacity: 0.55;
+		opacity: 0.6;
 		cursor: not-allowed;
 	}
 
@@ -317,20 +320,22 @@
 	.badge {
 		margin-left: auto;
 		font-size: var(--font-size-xs);
-		font-weight: 600;
-		padding: 0.15rem 0.5rem;
+		font-weight: 700;
+		padding: 0.15rem 0.55rem;
 		border-radius: var(--radius-sm);
 		background-color: var(--color-brand);
 		color: var(--color-brand-fg);
+		letter-spacing: 0.02em;
 	}
 
 	.badge-soon {
 		margin-left: auto;
 		font-size: var(--font-size-xs);
 		font-weight: 500;
-		padding: 0.15rem 0.5rem;
+		padding: 0.15rem 0.55rem;
 		border-radius: var(--radius-sm);
 		background-color: var(--color-surface-hover);
-		color: var(--color-text-muted);
+		color: var(--color-text-secondary);
+		border: 1px solid var(--color-border);
 	}
 </style>

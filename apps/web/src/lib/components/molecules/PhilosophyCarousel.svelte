@@ -310,7 +310,6 @@
 		align-items: center;
 		gap: var(--space-xs);
 		padding-top: var(--space-md);
-		border-top: 1px solid var(--color-border-subtle);
 		margin-top: auto;
 		flex-shrink: 0;
 	}
